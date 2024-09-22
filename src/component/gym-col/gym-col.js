@@ -11,13 +11,6 @@ class Gymcol extends Component {
             currentTime: new Date().toLocaleTimeString(),
         };
     }
-
-    componentDidMount() {
-        this.intervalId = setInterval(() => {
-
-            this.setState({ currentTime: new Date().toLocaleTimeString() });
-        }, 1000);
-    }
     componentDidMount() {
         axios.get('http://localhost:3001/gyms')
             .then(response => {
@@ -36,45 +29,21 @@ class Gymcol extends Component {
     };
 
     render() {
-        const { gyms } = this.state;
         return (
             <>
                 <center>
                     <form class>
                         <div class='overall'><br></br>
                             <img src={logo} alt="Logo" id='logo'></img>
-                            <h1 class='h1'>GYMFLOW </h1>
-                            {/* <ul>
-                                {gyms.map(gym => (
-                                    <li key={gym.id}>{gym.name} - {gym.location}</li>
-                                ))}
-                            </ul> */}~
+                            <h1 class='h1'>GymFlow </h1><br></br>
                             <div>
-                                <input class="name" type="number" placeholder="              ENTER YOUR ID HERE" />
-                            </div><br></br>
-                            {/* <div>
-                                <label htmlFor="currentDate" class='One'>SELECT TODAY'S DATE 📅</label>
-                            </div>
-                            <input type="date" id="currentDate" name="currentDate"></input> */}
-                            <h3 class='One'>Current Time ⏳: {this.state.currentTime}</h3>
-                            <button type='submit' class="btn">ENTER</button><br></br>
-                            <button type='reset' onClick={this.handleReset} class='btn'>RESET</button>
-                            <p style={{fontSize: 'large'}} class='h1'><b>STEP AHEAD TO SUCCEED</b></p>
+                                <input class="name" type="text" placeholder="Enter ID" ></input>
+                            </div><br></br><br></br>
+                            
+                            <button type='submit' class="btn">Enter</button><br></br>
+                            <button type='reset' onClick={this.handleReset} class='btn-res'>Reset</button>
                         </div>
                     </form>
-                </center><br></br><br></br><br></br>
-                <center>
-                    <footer>
-                        <header class="header1">
-                            <nav class="navbar">
-                                <a href="#" class="active">home</a>
-                                <a href="#">about</a>
-                                <a href="#">services</a>
-                                <a href="#"> plans</a>
-                                <a href="#">contact</a>
-                            </nav>
-                        </header>
-                    </footer>
                 </center>
             </>
         );

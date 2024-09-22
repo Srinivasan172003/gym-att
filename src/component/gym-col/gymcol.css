@@ -9,12 +9,13 @@
     color: rgb(255, 255, 255);
     background-color: rgb(255, 255, 255);
     size: 150px;
-    width: 250px;
-    height: 30px;
+    width: 300px;
+    height: 40px;
     border-radius: 12px;
     background-color: rgba(0, 0, 0, 0.5);
-    padding-left: 50px;
-    
+    font-size: 20px;
+    padding-left: 10px;
+;
 }
 .Form{
     display: flex;
@@ -47,15 +48,6 @@ body {
     color: white;
     margin-top: 200px;
 }
-/* .Enter {
-    border-radius: 12px;
-    background-color: #aaababb9;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-} */
 
 .Enter:hover {
     background-color: #ffffff;
@@ -73,7 +65,7 @@ label{
     margin: auto;
     margin-top: 80px;
     background-color: #5952528b;
-    box-shadow: inset -5px -5px rgba(126, 112, 135, 0.868);
+    box-shadow: inset -8px -8px rgba(135, 135, 167, 0.868);
     border-radius: 25px;
 }
 
@@ -81,10 +73,10 @@ label{
     font-size: 48px; /* Large, bold text */
     font-family:"Open Sans";
     font-weight: 700; /* Make the text bold */
-    color: lavender; /* Dark gray for the text */
+    color: #000000; /* Dark gray for the text */
     letter-spacing: -1px; /* Slightly reduce letter spacing for a tighter look */
     /* Uppercase for emphasis */
-    background: linear-gradient(145deg, lavender, #9fa3a9,#8b8585); /* Dark blue gradient */
+    background: linear-gradient(white,silver,rgb(71, 71, 71));
     -webkit-background-clip: text; /* Clip background to text */
     -webkit-text-fill-color: transparent; /* Make the text transparent to show gradient */
     text-align: center; /* Center the heading */
@@ -138,6 +130,7 @@ label{
     position: relative;
     z-index: 0;
     border-radius: 12px;
+    width: 60%;
 }
 .btn::after {
     content: "";
@@ -188,3 +181,64 @@ label{
     font-weight: bold;
     }
 
+    .btn-res {
+        margin: 1px;
+        padding: 15px 40px;
+        border: none;
+        outline: none;
+        color: #ffffff;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        border-radius: 12px;
+        width: 60%;
+        
+    }
+    .btn-res::after {
+        content: "";
+        z-index: -1;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #962121;
+        left: 0;
+        top: 0;
+        border-radius: 10px;
+    }
+      /* glow */
+    .btn-res::before {
+        content: "";
+        background: linear-gradient(
+        45deg,
+            #FF0000, #FF7300, #FFFB00, #48FF00,
+            #00FFD5, #002BFF, #FF00C8, #FF0000
+        );
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        background-size: 600%;
+        z-index: -1;
+        width: calc(100% + 4px);
+        height:  calc(100% + 4px);
+        filter: blur(8px);
+        animation: glowing 20s linear infinite;
+        transition: opacity .3s ease-in-out;
+        border-radius: 10px;
+        opacity: 0;
+        }
+        @keyframes glowing {
+        0% {background-position: 0 0;}
+        50% {background-position: 400% 0;}
+        100% {background-position: 0 0;}
+        }
+      /* hover */
+        .btn-res:hover::before {
+        opacity: 1;
+        }
+        .btn-res:active:after {
+        background: transparent;
+        }
+        .btn-res:active {
+        color: #000;
+        font-weight: bold;
+        }
